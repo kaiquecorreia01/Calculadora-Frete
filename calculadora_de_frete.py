@@ -27,6 +27,12 @@ except ValueError:
     print("Erro: Digite somente numeros")
     exit()
 
+# aqui é a seleção da entrega, comum ou expressa
+if entrega == 1:
+    print("Voce escolheu a entrega comum ")
+if entrega == 2:
+    print("Voce escolheu a entrega expressa")
+
 # se os kg digitado na variavel peso for igual ou menor que 1, o custo base sera $20
 if peso <= 1:
     cb = 20
@@ -39,8 +45,3 @@ elif peso <= 5:
 else:
     cb = 80
     print("O custo de entrega para esse peso é de: R$", cb)
-# aqui é a seleção da entrega, comum ou expressa
-if entrega == 1:
-    print("Voce escolheu a entrega comum ")
-if entrega == 2:
-    print("Voce escolheu a entrega expressa")
