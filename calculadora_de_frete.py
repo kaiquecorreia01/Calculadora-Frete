@@ -13,35 +13,30 @@ except ValueError:
 
 # escolhe o tipo de encomenda, 1 para comum e 2 para expressa
 try:
-    entrega = int(input(
-        "TIPOS DE ENTREGA\n1 - Comum\n2 - Expresso\nSelecione um tipo de entrega: "))
-    # criei uma regra que se o valor digitado na variavel "entrega" for igual ou menor que 0 ou for maior do que 2, ele gera uma mensagem de erro
-    if entrega > 2:
-        print("Erro: Por favor, escolha somente uma das opções apresentadas")
-        exit()
-    elif entrega <= 0:
-        print("Erro: Por favor, escolha somente uma das opções apresentadas")
-        exit()
-# aqui é pra se digitar algo alem de numeros
+    entrega = (input(
+        "TIPOS DE ENTREGA\n1 - Comum (R$10,00)\n2 - Expressa (R$20,00)\n3 - Relampago (R$30,00)\nSelecione um tipo de entrega: "))
 except ValueError:
-    print("Erro: Digite somente numeros")
     exit()
 
 # aqui é a seleção da entrega, comum ou expressa
-if entrega == 1:
-    print("Voce escolheu a entrega comum ")
-if entrega == 2:
-    print("Voce escolheu a entrega expressa")
+if entrega.lower() == "comum":
+    custo_frete = 10
 
+elif entrega.lower() == "expressa":
+    custo_frete = 20
+
+elif entrega.lower() == "relampago":
+    custo_frete = 30
 # se os kg digitado na variavel peso for igual ou menor que 1, o custo base sera $20
-if peso <= 1:
+if peso <= 4:
     cb = 20
-    print("O custo de entrega para esse peso é de: R$", cb)
 # se os kg digitado na variavel peso for igual ou menor que 5, o custo base sera $45
-elif peso <= 5:
+elif peso <= 8:
     cb = 45
-    print("O custo de entrega para esse peso é de: R$", cb)
 # ja se os kg digitado na variavel peso for maior doq , o custo base sera $80
 else:
     cb = 80
-    print("O custo de entrega para esse peso é de: R$", cb)
+
+custo_total = cb + custo_frete
+
+print("O custo total do seu frete é de: R$", custo_total)
