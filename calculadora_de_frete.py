@@ -19,13 +19,13 @@ except ValueError:
     exit()
 
 # aqui é a seleção da entrega, comum ou expressa
-if entrega.lower() == "comum":
+if entrega == "1":
     custo_frete = 10
 
-elif entrega.lower() == "expressa":
+elif entrega == "2":
     custo_frete = 20
 
-elif entrega.lower() == "relampago":
+elif entrega == "3":
     custo_frete = 30
 # se os kg digitado na variavel peso for igual ou menor que 1, o custo base sera $20
 if peso <= 4:
