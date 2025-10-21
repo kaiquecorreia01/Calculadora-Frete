@@ -1,3 +1,12 @@
+preco_entrega_comum = 10
+preco_entrega_expressa = 20
+preco_entrega_relampago = 30
+
+preco_base_leve = 20
+preco_base_medio = 45
+preco_base_pesado = 80
+
+
 # guarda a informação de quantos kg tem a encomenda
 try:
     peso = float(input("Digite o peso da encomenda em kg: "))
@@ -20,23 +29,28 @@ except ValueError:
 
 # aqui é a seleção da entrega, comum ou expressa
 if entrega == "1":
-    custo_frete = 10
+    custo_frete = preco_entrega_comum
 
 elif entrega == "2":
-    custo_frete = 20
+    custo_frete = preco_entrega_expressa
 
 elif entrega == "3":
-    custo_frete = 30
+    custo_frete = preco_entrega_relampago
+
+else:
+    print("Opção inválida. Digite apenas as opções apresentadas")
+    exit()
+
 # se os kg digitado na variavel peso for igual ou menor que 1, o custo base sera $20
 if peso <= 4:
-    cb = 20
+    custo_base = preco_base_leve
 # se os kg digitado na variavel peso for igual ou menor que 5, o custo base sera $45
 elif peso <= 8:
-    cb = 45
+    custo_base = preco_base_medio
 # ja se os kg digitado na variavel peso for maior doq , o custo base sera $80
 else:
-    cb = 80
+    custo_base = preco_base_pesado
 
-custo_total = cb + custo_frete
+custo_total = custo_base + custo_frete
 
-print("O custo total do seu frete é de: R$", custo_total)
+print(f"O custo total do seu frete é de: R$ {custo_total:.2f}")
